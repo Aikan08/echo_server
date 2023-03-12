@@ -90,6 +90,10 @@ void run_echo_client(int8_t* server_socket, char* address, struct sockaddr_in* a
 int main(int argc, char **argv) {
     int8_t sockfd;
     struct sockaddr_in address_socket;
-
-    run_echo_client(&sockfd, argv[1], &address_socket);
+   
+    if (argv[1] != NULL) {
+       run_echo_client(&sockfd, argv[1], &address_socket);
+    } else {
+       printf("Please input IP-address server");
+    }
 }
